@@ -1,0 +1,41 @@
+<ion-content class="ion-padding" [formGroup]="form">
+    <ion-item color="none">
+        <ion-label>Login</ion-label>
+        <ion-input type="email" placeholder="Login" formControlName="email"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item color="none">
+        <ion-label>Password</ion-label>
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-button slot="end" fill="clear" [routerLink]="['/forgot-pass']">Forgot Password ?</ion-button>
+    </ion-item>
+
+    <ion-item lines="none" color="none">
+        <ion-label>Remember Me</ion-label>
+        <ion-toggle formControlName="remember" slot="start" size="small"></ion-toggle>
+    </ion-item>
+
+    <ion-button expand="block" shape="round" fill="outline" (click)="logIn()">Log In</ion-button>
+
+    <ion-button expand="block" shape="round" routerLink="/register">Register</ion-button>
+
+    <ion-item lines="none" color="none">
+        <ion-label class="ion-text-center">Or connect with</ion-label>
+    </ion-item>
+
+    <div class="flex">
+        <ion-button color="facebook" shape="round" href="https://fr-fr.facebook.com/">
+            <ion-icon slot="start" name="logo-facebook"></ion-icon>
+            Facebook
+        </ion-button>
+        <ion-button color="google" shape="round"
+            href="https://accounts.google.com/signin/v2/identifier?hl=fr&passive=true&continue=https%3A%2F%2Fwww.google.com%2F&ec=GAZAmgQ&flowName=GlifWebSignIn&flowEntry=ServiceLogin">
+            <ion-icon slot="start" name="logo-google"></ion-icon>
+            Google
+        </ion-button>
+    </div>
+    <ion-button expand="block" fill="clear" shape="round" [routerLink]="['/home']">Home</ion-button>
+</ion-content>

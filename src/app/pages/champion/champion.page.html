@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-searchbar #searchbar animated placeholder="Champion's name"
+          (ionChange)="displayChampionsList($event.target.value)">
+        </ion-searchbar>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="championsList.length">
+      <ion-col>
+        <ion-list>
+          <ion-item *ngFor="let championName of championsList"
+            (click)="searchbar.value = ''; displayChampion(championName)">
+            {{ championName }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="selectedChampion">
+      <ion-col size="4">
+        <ion-img [src]="selectedChampion.thumb"></ion-img>
+      </ion-col>
+      <ion-col size="8">
+        <ion-row>
+          <ion-col>
+            {{ selectedChampion.name }} {{ selectedChampion.title }}
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

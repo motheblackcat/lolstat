@@ -1,0 +1,22 @@
+<ion-card>
+  <ion-card-content>
+    <ion-item>
+      <ion-label>{{ player.summonerName }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>League Point: {{ player.leaguePoints }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>W {{ player.wins }} / L {{ player.losses }}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Win Rate : {{ winrate }} %</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{ player.veteran ? 'Veteran' : '' }}</ion-label>
+      <ion-label>{{ player.inactive ? 'Inactive' : '' }}</ion-label>
+      <ion-label>{{ player.freshBlood ? 'Fresh Blood' : '' }}</ion-label>
+      <ion-label>{{ player.hotStreack ? 'Hot Streak' : '' }}</ion-label>
+    </ion-item>
+  </ion-card-content>
+</ion-card>

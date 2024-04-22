@@ -1,0 +1,95 @@
+<ion-content class="ion-padding" [formGroup]="form">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="4">
+                <img src="{{user.icon}}" class="profile-picture" />
+            </ion-col>
+            <ion-col size="8">
+                <ion-row>
+                    <ion-col>{{user.name}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-button color="tertiary" expand="block" shape="round" (click)="save()">Activated
+                        </ion-button>
+                        <!-- <ion-toggle shape="round" size="small"></ion-toggle> -->
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+        <br>
+        <br>
+        <ion-row>
+            <ion-col>
+                <select formControlName="positionOne">
+                    <option *ngFor="let position of positionList">{{ position }}</option>
+                </select>
+            </ion-col>
+            <ion-col>
+                <select formControlName="positionTwo">
+                    <option *ngFor="let position of positionList">{{ position }}</option>
+                </select>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="6">
+                <ion-row>
+                    <ion-item color="none">
+                        <ion-label>Elo Max:</ion-label>
+                    </ion-item>
+                </ion-row>
+                <ion-row>
+                    <select formControlName="rankMax">
+                        <option *ngFor="let eloMax of rank">{{eloMax}}</option>
+                    </select>
+                </ion-row>
+                <ion-row>
+                    <ion-item color="none">
+                        <ion-label>Elo Mini:</ion-label>
+                    </ion-item>
+                </ion-row>
+                <ion-row>
+                    <select formControlName="rankMin">
+                        <option *ngFor="let eloMini of rank">{{eloMini}}</option>
+                    </select>
+                </ion-row>
+                <ion-row>
+                    <ion-item color="none" lines="none">
+                        <ion-label>Discord</ion-label>
+                        <ion-checkbox color="danger" checked="false" formControlName="discord"></ion-checkbox>
+                    </ion-item>
+                </ion-row>
+            </ion-col>
+            <ion-col size="6">
+                <ion-item color="none" lines="none">
+                    <ion-label>Soloqueue</ion-label>
+                    <ion-checkbox color="dark" checked="false" formControlName="solo"></ion-checkbox>
+                </ion-item>
+                <ion-item color="none" lines="none">
+                    <ion-label>Flexible</ion-label>
+                    <ion-checkbox color="secondary" checked="false" formControlName="flex"></ion-checkbox>
+                </ion-item>
+                <ion-item color="none" lines="none">
+                    <ion-label>Clash</ion-label>
+                    <ion-checkbox checked="false" formControlName="clash"></ion-checkbox>
+                </ion-item>
+                <ion-item color="none" lines="none">
+                    <ion-label>Others</ion-label>
+                    <ion-checkbox color="tertiary" checked="false" formControlName="other"></ion-checkbox>
+                </ion-item>
+                <br>
+                <select formControlName="language">
+                    <option *ngFor="let language of lang">{{language}}</option>
+                </select>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-item>
+                    <ion-label position="floating">My Description</ion-label>
+                    <ion-textarea formControlName="desc" placeholder="Enter more information here..."></ion-textarea>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

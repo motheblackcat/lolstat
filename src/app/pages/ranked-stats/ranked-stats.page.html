@@ -1,0 +1,39 @@
+<ion-content class="ion-padding" [formGroup]="form">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-radio-group formControlName="tier">
+          <ion-item *ngFor="let tier of tiersArray">
+            <ion-radio slot="start" name="{{tier.name}}" value="{{ tier.name }}"></ion-radio>
+            <ion-thumbnail>
+              <ion-img [src]="tier.iconUrl"></ion-img>
+            </ion-thumbnail>
+          </ion-item>
+        </ion-radio-group>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-radio-group formControlName="league">
+          <ion-item *ngFor="let league of leagueArray">
+            <ion-radio slot="start" value="{{ league.value }}"></ion-radio>
+            <ion-label>{{ league.name }}</ion-label>
+          </ion-item>
+        </ion-radio-group>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" [disabled]="form.invalid" (click)="checkForm()">Search
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ng-container *ngIf="currentLeague$ | async as currentLeague">
+      <ion-row *ngFor="let player of currentLeague">
+        <ion-col>
+          <app-stat-card [player]="player"></app-stat-card>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,10 @@
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button>
+    <ion-icon name="grid-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button *ngFor="let menu of menus" routerLink="{{ menu.link }}">
+      <ion-icon name="{{ menu.icon }}"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
